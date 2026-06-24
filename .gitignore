@@ -1,0 +1,11 @@
+# Rendered-DOM input export (source of truth, not part of the clone output)
+_source/
+
+# Build artifacts / local checks
+_check_*.png
+_failed.json
+mcgeerkitchens-static-clone.zip
+
+# Python cache
+__pycache__/
+*.pyc
