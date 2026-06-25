@@ -113,16 +113,20 @@ p{margin:0 0 1rem}
 .hero-checks li .ck{width:22px; height:22px; flex:none; border:1px solid var(--gold-2); color:var(--gold-2);
   display:grid; place-items:center; border-radius:3px; font-size:.66rem}
 
-/* dark hero form card ------------------------------------------------------ */
-.lead-card--dark{background:rgba(18,18,18,.84); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.12); color:#fff}
+/* frosted-glass hero form card (image shows through, blurred) --------------- */
+.lead-card.lead-card--dark{background:rgba(14,14,14,.46);
+  backdrop-filter:blur(16px) saturate(120%); -webkit-backdrop-filter:blur(16px) saturate(120%);
+  border:1px solid rgba(255,255,255,.22); box-shadow:0 30px 70px rgba(0,0,0,.5); color:#fff}
 .lead-card--dark h3{color:#fff; font-family:'Oswald',var(--font); text-transform:uppercase; font-weight:700; font-size:1.7rem; letter-spacing:.4px}
-.lead-card--dark .lc-sub{color:#bdbbb4}
-.lead-card--dark .field{background:rgba(255,255,255,.07); border-color:rgba(255,255,255,.16); color:#fff}
-.lead-card--dark .field::placeholder{color:#9c998f}
-.lead-card--dark select.field{background-image:linear-gradient(45deg,transparent 50%,var(--gold-2) 50%),linear-gradient(135deg,var(--gold-2) 50%,transparent 50%)}
+.lead-card--dark .lc-sub{color:#e4e2db}
+.lead-card--dark .field{background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.28); color:#fff}
+.lead-card--dark .field::placeholder{color:#e6e4dd}
+.lead-card--dark select.field{
+  background-image:linear-gradient(45deg,transparent 50%,#fff 50%),linear-gradient(135deg,#fff 50%,transparent 50%);
+  background-position:calc(100% - 19px) 19px,calc(100% - 13px) 19px; background-size:6px 6px,6px 6px; background-repeat:no-repeat}
 .lead-card--dark select.field option{color:#111}
-.lead-card--dark .field:focus{border-color:var(--gold); background:rgba(255,255,255,.12)}
-.lead-card--dark .disclaimer{color:#8c8980}
+.lead-card--dark .field:focus{border-color:var(--gold-2); background:rgba(255,255,255,.2)}
+.lead-card--dark .disclaimer{color:#cbc9c2}
 
 /* lead form card ----------------------------------------------------------- */
 .lead-card{background:#fff; box-shadow:var(--shadow-img); padding:36px}
@@ -281,7 +285,41 @@ blockquote.mission{margin:22px 0; padding-left:22px; border-left:2px solid var(-
   justify-content:space-between; gap:14px; flex-wrap:wrap; color:#84827c; font-size:.78rem}
 .footer .fbar a{display:inline; color:var(--gold-2)}
 
-/* service detail pages ----------------------------------------------------- */
+/* service detail pages (Cloud Nine structure) ------------------------------ */
+.svc-page h1,.svc-page h2{font-family:'Oswald',var(--font); text-transform:uppercase; font-weight:700; color:var(--ink); letter-spacing:.4px}
+.svc-page h2{font-size:clamp(1.7rem,3.2vw,2.5rem); line-height:1.08}
+.svc-page h3{font-weight:600}
+.hero--service{min-height:66vh}
+.hero--service .container{display:block; max-width:var(--maxw)}
+.hero--service .hero-copy{max-width:820px; color:#fff}
+.hero--home h1,.hero--service h1{font-family:'Oswald',var(--font); text-transform:uppercase; font-weight:700;
+  font-size:clamp(2.5rem,5vw,4.4rem); line-height:1.02; letter-spacing:.5px; color:#fff}
+.hero--service .hero-sub{max-width:680px; margin-top:18px}
+.hero--service .hero-cta{margin-top:30px; display:flex; gap:14px; flex-wrap:wrap}
+.breadcrumb{font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:#cfcdc7; margin-bottom:18px}
+.breadcrumb a{color:var(--gold-2)} .breadcrumb span{opacity:.55; margin:0 9px}
+.menu>li>a.active{color:var(--gold)} .submenu li a.active{color:var(--gold); background:var(--bg-alt)}
+/* subtle grid bg for the overview */
+.bg-grid{background-color:#fff;
+  background-image:linear-gradient(rgba(0,0,0,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.035) 1px,transparent 1px);
+  background-size:48px 48px}
+.ov-block{margin-bottom:42px} .ov-block:last-child{margin-bottom:0}
+.ov-block h2{margin-bottom:14px}
+.ov-block p{color:#46443f; font-weight:300; margin:0}
+/* why + what's included */
+.svc-split{display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start}
+.why-list{list-style:none; padding:0; margin:0}
+.why-item{display:flex; gap:18px; align-items:center; background:#fff; border:1px solid var(--line);
+  padding:20px 22px; margin-bottom:16px; color:#46443f; font-weight:300}
+.why-num{flex:none; width:42px; height:42px; background:var(--ink); color:var(--gold-2);
+  font-family:'Oswald',var(--font); font-weight:700; display:grid; place-items:center; font-size:1.05rem}
+.inc-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+.inc-card{display:flex; gap:12px; align-items:flex-start; background:#fff; border:1px solid var(--line); padding:16px 18px; font-size:.92rem; font-weight:300; color:#46443f}
+.inc-card .cb{flex:none; width:22px; height:22px; border:1px solid var(--gold); color:var(--gold); display:grid; place-items:center; border-radius:3px; font-size:.66rem; margin-top:1px}
+@media (max-width:980px){ .svc-split{grid-template-columns:1fr; gap:40px} }
+@media (max-width:600px){ .inc-grid{grid-template-columns:1fr} }
+
+/* legacy service hero (unused) --------------------------------------------- */
 .hero--sm{min-height:60vh}
 .hero--sm .container{display:block; max-width:880px; text-align:center}
 .hero--sm .hero-copy{color:#fff}

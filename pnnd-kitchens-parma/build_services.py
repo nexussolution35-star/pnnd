@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""Generate dedicated service pages for PNND Kitchens.
+"""Generate dedicated service pages + an All Services index for PNND Kitchens.
 
-Structure follows Website A's service-page conversion framework
-(hero -> overview -> info grid -> what's included -> why -> process ->
-gallery -> FAQ -> 'you may also need' cross-sell -> CTA form), rendered
-in Website B's (Twelve) minimalist visual language. Shared nav/footer.
+Mirrors Website A's (Cloud Nine) service-page structure & design:
+hero (bold uppercase headline, body copy, dual CTAs) -> multi-block
+overview -> 'why us' numbered list beside 'what's included' checkbox grid ->
+ring process -> gallery -> FAQ -> 'you may also need' cross-sell -> CTA form.
+Rendered with PNND branding (Oswald headings, gold accent, Twelve imagery).
 """
-import os, html
+import os
 
 OUT = os.path.join(os.path.dirname(__file__), "services")
 os.makedirs(OUT, exist_ok=True)
 
-# nav order (slug, label)
 NAV = [
     ("kitchen-remodelling", "Kitchen Remodelling"),
     ("cabinet-construction-installation", "Cabinet Construction &amp; Installation"),
@@ -22,23 +22,25 @@ NAV = [
     ("deck-construction", "Deck Construction"),
 ]
 
-# per-service content
 S = {
  "kitchen-remodelling": {
   "label":"Kitchen Remodelling","eyebrow":"kitchen remodelling","hero":"p01",
-  "head":"kitchen remodelling in pretoria, done by hand",
-  "lede":["A new kitchen is the single biggest change you can make to a home — and the one most worth getting right. We remodel kitchens end to end: layout, cabinetry, counters, lighting and finishes, designed around how you actually cook and live.",
-          "From a first free measure-up to the final clean-up, the same owner-led team handles your project. No subcontracted chaos, no surprise charges — just one accountable workshop in Arcadia."],
-  "info":[("Design","3D layouts and finish boards before a single board is cut."),
-          ("Materials","Solid timber, quality board, stone and premium fittings."),
-          ("Timeline","A written schedule, agreed up front and kept to."),
-          ("Guarantee","Workmanship we stand behind, with aftercare you can reach.")],
+  "tagline":"Designed, built and installed by one accountable team.",
+  "head":"Kitchen Remodelling in Pretoria",
+  "intro":"When your kitchen stops working for the way you live, a remodel is the honest fix — not another patch. We redesign, build and install the whole thing, then walk you through the result.",
+  "overview":[
+    ("Kitchen Remodelling, Done By The Owner","Most kitchen companies run a sales team. PNND runs an owner. The person who quotes your kitchen is the one who measures it, builds it in our Arcadia workshop, and is on site when it's installed."),
+    ("One Workshop, Every Trade","Cabinetry, counters, splashbacks, lighting coordination and finishes are handled under one roof. Fewer trades, fewer delays, and a single team accountable for the result."),
+    ("What The Consultation Covers","Every consultation is free and on your timeline. We measure, photograph the space, talk through layout and finishes, and follow up the same week with drawings and a written quote."),
+    ("What Honest Pricing Looks Like","Your quote is line-itemed — cabinetry, counters, hardware, removal and installation. You see every number, with no bundled mystery totals. If anything changes, we call before the crew arrives."),
+  ],
+  "why":["The owner measures, builds and installs — you deal with one person",
+         "Line-item written quote, no bundled mystery numbers",
+         "Solid timber, quality board and premium fittings",
+         "Our own crews on every project — never subcontracted"],
   "included":["Full design &amp; 3D layout","Custom cabinetry &amp; carcasses","Countertops &amp; splashbacks",
               "Soft-close hinges &amp; runners","Lighting &amp; electrical coordination","Removal of the old kitchen",
               "Professional installation","Final snag &amp; clean-up"],
-  "why":[("Owner-led","The person who quotes your kitchen is on site building it."),
-         ("One team","Design, build and install under one roof — fewer trades, fewer delays."),
-         ("Fixed quote","Every line explained and priced before work starts.")],
   "faq":[("How long does a kitchen remodel take?","Most kitchens take 3–6 weeks from sign-off, depending on size and finishes. You get a written schedule before we begin."),
          ("Can you work with my existing layout?","Yes — we can refresh within your current footprint or redesign the layout entirely. We advise on what adds the most value."),
          ("What does a kitchen cost in Pretoria?","Most remodels run between R80,000 and R350,000. We quote after a free measure-up so the price fits your space and finishes.")],
@@ -47,19 +49,22 @@ S = {
  },
  "cabinet-construction-installation": {
   "label":"Cabinet Construction &amp; Installation","eyebrow":"cabinet construction","hero":"p03",
-  "head":"custom cabinets, built &amp; installed by hand",
-  "lede":["Made-to-measure cabinets for kitchens, sculleries, TV units and storage — built in our Pretoria workshop and installed by the same team. Every carcass is square, every door aligned, every runner soft-close.",
-          "We build to the millimetre for your space, so there are no filler panels or awkward gaps — just clean, considered cabinetry that looks built-in because it is."],
-  "info":[("Made to measure","Built to your exact dimensions, not flat-pack sizes."),
-          ("Finishes","Melamine, veneer, spray-paint and wrap options."),
-          ("Hardware","Blum-style soft-close hinges &amp; runners."),
-          ("Install","Fitted and levelled by our own carpenters.")],
-  "included":["On-site measure &amp; design","Custom carcasses &amp; doors","Soft-close hardware",
+  "tagline":"Made to measure, built by hand, installed by our own team.",
+  "head":"Custom Cabinets, Built &amp; Installed",
+  "intro":"Made-to-measure cabinets for kitchens, sculleries, TV units and storage — built in our Pretoria workshop and fitted by the same team that built them.",
+  "overview":[
+    ("Cabinetry, Done By The Owner","The person who quotes your cabinets measures, builds and installs them. No sales rep hand-off, no subcontracted fitters — one accountable craftsman from first measure to final screw."),
+    ("Built To The Millimetre","We build to your exact dimensions, so there are no filler panels or awkward gaps. Every carcass is square, every door aligned, every drawer soft-close."),
+    ("What The Consultation Covers","A free on-site measure-up where we discuss finishes, hardware and layout, then follow up with a written quote and finish samples the same week."),
+    ("What Honest Pricing Looks Like","Carcasses, doors, hardware, edging and installation are itemised separately. You see every number before any work begins — no surprises on install day."),
+  ],
+  "why":["One craftsman from measure to install — never subcontracted",
+         "Built to the millimetre — no fillers, no gaps",
+         "Quality board, solid timber and soft-close hardware as standard",
+         "Fixed written quote before any work starts"],
+  "included":["On-site measure &amp; design","Custom carcasses &amp; doors","Soft-close hinges &amp; runners",
               "Edging &amp; finishing","Handles &amp; accessories","Delivery &amp; installation",
               "Levelling &amp; alignment","Snag &amp; clean-up"],
-  "why":[("Precision","Built to the millimetre — no fillers, no gaps."),
-         ("Durability","Quality board and timber that survives daily use."),
-         ("Accountable","One team from measure to final screw.")],
   "faq":[("What materials do you use?","Quality moisture-resistant board, solid timber and real veneers, with soft-close hardware as standard. We'll show samples at the consultation."),
          ("Do you install what you build?","Always. The team that builds your cabinets installs them, so quality is owned end to end."),
          ("Can you match an existing kitchen?","Yes — we colour- and finish-match to extend or repair existing cabinetry wherever possible.")],
@@ -68,19 +73,22 @@ S = {
  },
  "closet-construction-installation": {
   "label":"Closet Construction &amp; Installation","eyebrow":"closets &amp; wardrobes","hero":"p04",
-  "head":"built-in closets that use every centimetre",
-  "lede":["Floor-to-ceiling built-in cupboards and wardrobes, designed around your room and the way you store. Hanging space, drawers, shelving and shoe racks — laid out to fit your life, not an off-the-shelf module.",
-          "Built and installed by our own team, with finishes that match your bedroom or remodelled kitchen."],
-  "info":[("Made to measure","Floor-to-ceiling, wall-to-wall — zero wasted space."),
-          ("Interiors","Hanging, drawers, shelving and accessory options."),
-          ("Finishes","Matched to your room and existing joinery."),
-          ("Install","Scribed and fitted flush to your walls.")],
+  "tagline":"Floor-to-ceiling built-ins, scribed and fitted to your walls.",
+  "head":"Built-in Closets &amp; Wardrobes",
+  "intro":"Floor-to-ceiling built-in cupboards and wardrobes, designed around your room and the way you store — then built and installed by our own team.",
+  "overview":[
+    ("Closets, Done By The Owner","From first measure to final fit, one team is responsible. The owner plans your closet, builds it, and is there when it goes in."),
+    ("Storage That Uses Every Centimetre","Hanging space, drawers, shelving and shoe racks, laid out to fit your life — not an off-the-shelf module. We scribe to your walls so it reads as part of the house."),
+    ("What The Consultation Covers","A free measure-up where we plan zones, discuss door styles and finishes, and follow up with a layout and written quote the same week."),
+    ("What Honest Pricing Looks Like","Carcasses, internals, doors and installation are itemised. You see every number up front, with a fixed quote before we build."),
+  ],
+  "why":["Planned, built and installed by one team",
+         "Scribed to the wall for a true built-in finish",
+         "Internals tailored to how you actually store",
+         "Fixed written quote, no mystery numbers"],
   "included":["On-site measure &amp; design","Custom carcasses &amp; doors","Internal hanging &amp; shelving",
               "Soft-close drawers","Mirrors &amp; accessories (optional)","Delivery &amp; installation",
               "Scribing to walls","Snag &amp; clean-up"],
-  "why":[("Space-smart","Designed around your room and your storage habits."),
-         ("Seamless","Scribed to the wall so it reads as part of the house."),
-         ("One team","Designed, built and fitted by the same crew.")],
   "faq":[("Hinged or sliding doors?","Both. Sliding doors suit tight rooms; hinged doors give full access. We advise based on your space at the measure-up."),
          ("Can you fit into an alcove or sloped ceiling?","Yes — built-ins are ideal for awkward spaces. We scribe and build to fit exactly."),
          ("How long does installation take?","Most built-in closets are installed in 1–3 days once built, with minimal disruption.")],
@@ -89,19 +97,22 @@ S = {
  },
  "custom-closet-design": {
   "label":"Custom Closet Design","eyebrow":"custom closet design","hero":"p05",
-  "head":"walk-in &amp; dressing room design, tailored to you",
-  "lede":["For walk-in closets and dressing rooms, design is everything. We plan zones for hanging, folding, shoes and accessories, then craft a system that feels calm, considered and entirely yours.",
-          "You'll see the layout in 3D before we build, so you know exactly how it works the day it's installed."],
-  "info":[("3D design","See your closet before it's built."),
-          ("Zoning","Dedicated space for every category."),
-          ("Lighting","Integrated LED options for that boutique feel."),
-          ("Bespoke","Drawers, glass fronts, valet rails and more.")],
+  "tagline":"Walk-in and dressing-room design, planned in 3D.",
+  "head":"Custom Closet &amp; Dressing Room Design",
+  "intro":"For walk-in closets and dressing rooms, design is everything. We plan zones for hanging, folding, shoes and accessories, then craft a system that's entirely yours.",
+  "overview":[
+    ("Design, Done By The Owner","You work directly with the person who will build your closet — no design-to-build hand-off where detail gets lost."),
+    ("Designed Around Your Wardrobe","Every closet is planned around what you own and how you use it, not a template. Lighting, glass fronts, valet rails and drawers are specified to suit."),
+    ("What The Consultation Covers","A free design consultation and 3D layout, so you can see and adjust the closet before we build a thing."),
+    ("What Honest Pricing Looks Like","Design, build and installation are itemised, with a fixed written quote after the consultation. You approve the number before we start."),
+  ],
+  "why":["Every closet planned around your wardrobe, not a template",
+         "3D design so you see it before it's built",
+         "Boutique detailing — lighting, glass fronts, valet rails",
+         "Design, build and install from one studio"],
   "included":["Consultation &amp; 3D design","Zoned hanging &amp; storage plan","Drawers, shelving &amp; rails",
               "Optional integrated lighting","Glass-front &amp; display options","Build &amp; installation",
               "Finishing &amp; alignment","Snag &amp; clean-up"],
-  "why":[("Tailored","Every closet is planned around your wardrobe, not a template."),
-         ("Boutique feel","Lighting, finishes and detailing that elevate the room."),
-         ("End to end","Design, build and install from one studio.")],
   "faq":[("Do you provide 3D drawings?","Yes — every custom closet starts with a 3D design so you can see and adjust the layout before we build."),
          ("Can you add lighting?","Absolutely. Integrated LED strip and sensor lighting are popular options we coordinate during the build."),
          ("How much does a walk-in closet cost?","It depends on size and detailing. We quote a fixed price after the free design consultation.")],
@@ -110,19 +121,22 @@ S = {
  },
  "custom-carpentry": {
   "label":"Custom Carpentry","eyebrow":"custom carpentry","hero":"p06",
-  "head":"bespoke joinery for every room",
-  "lede":["Vanities, media units, study desks, shelving, wine racks and feature joinery — if it can be built in timber, we can craft it. One-off pieces made to measure for your home or business.",
-          "Tell us what you need and where it goes; we'll design, build and install it to last."],
-  "info":[("Anything bespoke","Vanities, desks, shelving, feature walls."),
-          ("Materials","Solid timber, veneer and quality board."),
-          ("Made to measure","Built for your exact space and use."),
-          ("Install","Fitted cleanly by our own carpenters.")],
+  "tagline":"Bespoke joinery for every room — residential and commercial.",
+  "head":"Custom Carpentry &amp; Joinery",
+  "intro":"Vanities, media units, desks, shelving, wine racks and feature joinery — if it can be built in timber, we can craft it, to measure, for your home or business.",
+  "overview":[
+    ("Carpentry, Done By The Owner","Tell us what you need and where it goes; the owner designs, builds and installs it. One craftsman, accountable from sketch to fit."),
+    ("Truly Bespoke, Not Catalogue","These are one-off pieces made for your space and use, finished to furniture standard — not flat-pack furniture in disguise."),
+    ("What The Consultation Covers","A free measure-up and design chat, with a written quote and material options the same week."),
+    ("What Honest Pricing Looks Like","Design, build, materials and installation are itemised. You approve a fixed quote before any timber is cut."),
+  ],
+  "why":["One-off pieces, designed and built for your space",
+         "Joinery finished to furniture standard",
+         "Residential and commercial projects welcome",
+         "Matched to existing furniture where possible"],
   "included":["Design &amp; measure","Bespoke build in our workshop","Quality timber &amp; finishes",
               "Hardware &amp; fittings","Delivery &amp; installation","Finishing &amp; alignment",
               "Commercial &amp; residential","Snag &amp; clean-up"],
-  "why":[("Truly bespoke","One-off pieces, not catalogue furniture."),
-         ("Craftsmanship","Joinery finished to furniture standard."),
-         ("Flexible","Residential and commercial projects welcome.")],
   "faq":[("What kinds of carpentry do you take on?","Vanities, media units, desks, shelving, wine storage, feature panelling and more — residential and commercial."),
          ("Can you match existing furniture?","Yes, we colour- and finish-match wherever possible so new pieces feel original to the space."),
          ("Do you do commercial fit-outs?","We do — reception counters, retail joinery and office storage are all within our scope.")],
@@ -131,19 +145,22 @@ S = {
  },
  "cabinet-closet-repair": {
   "label":"Cabinet &amp; Closet Repair","eyebrow":"cabinet &amp; closet repair","hero":"p11",
-  "head":"repairs &amp; refits that bring units back to life",
-  "lede":["Not everything needs replacing. Sagging doors, broken hinges, blown board, worn runners and tired finishes can often be repaired or refitted for a fraction of a new build.",
-          "We assess honestly — if a repair makes sense, we'll fix it; if it doesn't, we'll tell you. Either way you get a fair, fixed quote."],
-  "info":[("Doors &amp; hinges","Re-aligned, re-hung or replaced."),
-          ("Drawers","New runners and soft-close mechanisms."),
-          ("Surfaces","Re-edging, re-wrapping and refinishing."),
-          ("Honest advice","Repair vs replace, told straight.")],
+  "tagline":"Repairs and refits — for a fraction of a new build.",
+  "head":"Cabinet &amp; Closet Repair",
+  "intro":"Not everything needs replacing. Sagging doors, broken hinges, blown board, worn runners and tired finishes can often be repaired or refitted for far less than a new build.",
+  "overview":[
+    ("Repairs, Done By The Owner","The owner assesses your units in person and tells you straight whether a repair makes sense — no upsell to a full replacement you don't need."),
+    ("Repair Before You Replace","If the carcasses are sound, a repair is usually the smart call. We re-align doors, replace runners, swap blown panels and refresh finishes."),
+    ("What The Assessment Covers","A free on-site assessment of doors, hinges, drawers, panels and finishes, with an honest recommendation and a fixed quote."),
+    ("What Honest Pricing Looks Like","You get a clear, itemised quote for exactly what needs doing — and a straight answer when a repair isn't worth it."),
+  ],
+  "why":["Honest assessment — repair vs replace, told straight",
+         "A fraction of the cost of a new build",
+         "Fast, scheduled and tidy work",
+         "Free assessment and quote in Pretoria"],
   "included":["On-site assessment","Hinge &amp; door alignment","Runner &amp; drawer repair",
               "Board &amp; panel replacement","Re-edging &amp; refinishing","Handle &amp; hardware swaps",
               "Water-damage repairs","Fixed written quote"],
-  "why":[("Cost-smart","Repair for a fraction of replacement, where it makes sense."),
-         ("Fast","Most repairs are quick, scheduled and tidy."),
-         ("Honest","We tell you when a repair isn't worth it.")],
   "faq":[("Is it worth repairing or should I replace?","If the carcasses are sound, repair is usually the smart call. We assess on site and advise honestly."),
          ("Can you fix water-damaged cupboards?","Often yes — we replace affected panels and refinish so it blends in. Severe cases may need a partial rebuild."),
          ("Do you charge for a quote?","Assessment and quoting are free within Pretoria and surrounds.")],
@@ -152,19 +169,22 @@ S = {
  },
  "deck-construction": {
   "label":"Deck Construction","eyebrow":"deck construction","hero":"p08",
-  "head":"solid timber decks built for the highveld",
-  "lede":["Outdoor living, done properly. We build solid timber decks, pergolas and outdoor woodwork engineered to handle Pretoria sun, rain and seasons — sealed and finished to last.",
-          "From a raised entertainment deck to a simple poolside platform, we design and build to suit your space and budget."],
-  "info":[("Materials","Hardwood and treated timber, sealed to last."),
-          ("Structure","Properly framed, fixed and weatherproofed."),
-          ("Design","Raised, multi-level or poolside layouts."),
-          ("Finish","Sanded, sealed and ready to enjoy.")],
+  "tagline":"Solid timber decks, engineered and sealed to last.",
+  "head":"Deck Construction in Pretoria",
+  "intro":"Outdoor living, done properly. We build solid timber decks, pergolas and outdoor woodwork engineered to handle the Highveld — sealed and finished to last.",
+  "overview":[
+    ("Decks, Done By The Owner","The owner assesses the site, designs the deck and is on the build. One team responsible for structure, timber and finish."),
+    ("Built For The Highveld","Properly framed and fixed, in hardwood or treated timber, sealed against sun and rain so your deck still looks good seasons later."),
+    ("What The Consultation Covers","A free site assessment where we discuss layout, levels, balustrades and pergolas, followed by a written quote."),
+    ("What Honest Pricing Looks Like","Substructure, decking, finishing and any extras are itemised. You approve a fixed quote before we break ground."),
+  ],
+  "why":["Engineered and sealed for Highveld weather",
+         "Designed around your home and how you entertain",
+         "Carpentry-grade build quality, inside and out",
+         "Fixed written quote, no surprises"],
   "included":["Site assessment &amp; design","Framing &amp; substructure","Quality timber decking",
               "Balustrades &amp; steps (optional)","Pergolas &amp; screens (optional)","Sealing &amp; finishing",
               "Hardware &amp; fixings","Clean-up &amp; handover"],
-  "why":[("Built to last","Engineered and sealed for Highveld weather."),
-         ("Bespoke","Designed around your home and how you entertain."),
-         ("One team","Carpentry-grade build quality, inside and out.")],
   "faq":[("What timber do you use for decks?","Hardwoods and properly treated timber suited to outdoor use, sealed to resist sun and rain. We'll recommend options to suit your budget."),
          ("Do you build pergolas and balustrades too?","Yes — pergolas, screens, steps and balustrades can all be part of the project."),
          ("How long does a deck take?","Most decks are built within 1–2 weeks depending on size and structure.")],
@@ -174,10 +194,11 @@ S = {
 }
 
 def nav(active):
-    items = ""
+    items = '          <li><a href="all-services.html">All Services</a></li>\n'
     for slug, label in NAV:
         cls = ' class="active"' if slug == active else ''
         items += f'          <li><a href="{slug}.html"{cls}>{label}</a></li>\n'
+    svc_active = ' class="active"' if active else ''
     return f'''<nav class="nav" id="nav">
   <div class="container">
     <a class="nav-logo" href="../index.html" aria-label="PNND Kitchens"><img src="../img/logo.svg" alt="PNND Kitchens"></a>
@@ -185,7 +206,7 @@ def nav(active):
       <li><a href="../index.html">home</a></li>
       <li><a href="../index.html#about">about</a></li>
       <li class="has-sub">
-        <a href="../index.html#services" class="active">services</a>
+        <a href="all-services.html"{svc_active}>services</a>
         <ul class="submenu">
 {items}        </ul>
       </li>
@@ -223,13 +244,13 @@ STEPS = [("consultation","A free home visit. We measure, listen, and understand 
          ("install","Our own team fits everything cleanly, then walks you through the result.")]
 
 def process():
-    cells = ""
+    out = ""
     for i,(h,p) in enumerate(STEPS):
-        cells += f'''      <div class="step reveal">
+        out += f'''      <div class="step reveal">
         <div class="ring"><svg viewBox="0 0 100 100">{RINGS[i]}</svg><span class="rn">0{i+1}</span></div>
         <h3>{h}</h3><p>{p}</p>
       </div>\n'''
-    return cells
+    return out
 
 def cta_form():
     opts = "".join(f'            <option>{l}</option>\n' for _,l in NAV)
@@ -238,7 +259,7 @@ def cta_form():
   <div class="container">
     <div class="reveal">
       <span class="eyebrow">ready to start?</span>
-      <h2>book your free consultation today</h2>
+      <h2>Book Your Free Consultation Today</h2>
       <p class="lead">Tell us about your project. We will measure it, walk you through the options, and give you a written quote the same week — with no obligation.</p>
       <div class="contact-rows">
         <a class="contact-row" href="tel:+27817966895"><span class="cr-ic">&#9742;</span><span><small>Call us</small><b>081 796 6895</b></span></a>
@@ -249,8 +270,8 @@ def cta_form():
         <iframe title="PNND Kitchens location" loading="lazy" src="https://maps.google.com/maps?q=160%20Pine%20St%20Arcadia%20Pretoria%200083&t=m&z=14&output=embed&iwloc=near"></iframe>
       </div>
     </div>
-    <div class="lead-card reveal">
-      <h3>request my free quote</h3>
+    <div class="lead-card lead-card--dark reveal">
+      <h3>Request My Free Quote</h3>
       <div class="lc-sub">We reply the same week — promise.</div>
       <form class="lead-form" novalidate>
         <div class="form-grid">
@@ -258,10 +279,10 @@ def cta_form():
           <input class="field" type="tel" name="phone" placeholder="Phone Number" required>
           <input class="field full" type="email" name="email" placeholder="Email Address" required>
           <select class="field full" name="service" required>
-            <option value="" selected disabled>Which service do you need?</option>
+            <option value="" selected disabled>How Can We Help?</option>
 {opts}          </select>
         </div>
-        <button class="btn btn-block" type="submit" style="margin-top:14px">Book My Free Consultation</button>
+        <button class="btn btn-block" type="submit" style="margin-top:14px">Get My Free Quote →</button>
         <p class="disclaimer">We will never send you unsolicited messages. No obligation. No pressure.</p>
         <div class="form-success">Thank you &mdash; your request has been received. We'll be in touch shortly.</div>
       </form>
@@ -307,36 +328,42 @@ MOBILE = '''<div class="mobile-bar">
   <a class="mb-cta" href="#cta-form">Free Consultation</a>
 </div>'''
 
-def page(slug, d):
-    info = "".join(f'      <div class="info-card reveal"><div class="ic-h">{h}</div><p>{p}</p></div>\n' for h,p in d["info"])
-    included = "".join(f'        <li><b>{x}</b></li>\n' for x in d["included"])
-    why = "".join(f'      <div class="reveal"><h3>{h}</h3><p style="color:var(--muted);font-weight:300;margin:8px 0 0">{p}</p></div>\n' for h,p in d["why"])
-    faq = "".join(f'''      <div class="faq-item reveal"><button class="faq-q">{q}<span class="ic">+</span></button>
-        <div class="faq-a"><p>{a}</p></div></div>\n''' for q,a in d["faq"])
-    gallery = "".join(f'      <a href="../img/{g}.jpg"><img src="../img/{g}.jpg" alt="{d["label"]} project by PNND Kitchens"></a>\n' for g in d["gallery"])
-    related = ""
-    for rs in d["related"]:
-        r = S[rs]
-        related += f'''      <a class="svc-card reveal" href="{rs}.html"><img src="../img/{r["hero"]}.jpg" alt="{r["label"]}">
-        <div class="svc-body"><h3>{r["eyebrow"]}</h3><p>Learn more about our {r["label"].lower()} work.</p><span class="more">View service &rarr;</span></div></a>\n'''
-    lede = "".join(f'      <p class="lead" style="margin-bottom:14px">{p}</p>\n' for p in d["lede"])
-    plain = d["label"].replace("&amp;","and")
+def head(title, desc, hero=None):
+    pl = '\n<link rel="preload" as="image" href="../img/%s.jpg">' % hero if hero else ''
     return f'''<!doctype html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>{plain} in Pretoria | PNND Kitchens</title>
-<meta name="description" content="{plain} by PNND Kitchens — owner-led carpentry in Arcadia, Pretoria. Designed, built and installed by hand. Free consultation. Call 081 796 6895.">
+<title>{title}</title>
+<meta name="description" content="{desc}">
 <link rel="icon" type="image/svg+xml" href="../img/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css">
-<link rel="preload" as="image" href="../img/{d["hero"]}.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">{pl}
 <script>document.documentElement.className+=' js';</script>
 </head>
-<body>
+<body class="svc-page">'''
+
+def page(slug, d):
+    overview = ""
+    for h,p in d["overview"]:
+        overview += f'      <div class="ov-block reveal"><h2>{h}</h2><p>{p}</p></div>\n'
+    why = "".join(f'        <li class="why-item reveal"><span class="why-num">{i+1}</span><span>{w}</span></li>\n' for i,w in enumerate(d["why"]))
+    inc = "".join(f'        <div class="inc-card reveal"><span class="cb">✓</span><span>{x}</span></div>\n' for x in d["included"])
+    gallery = "".join(f'      <a href="../img/{g}.jpg"><img src="../img/{g}.jpg" alt="{d["label"]} project by PNND Kitchens"></a>\n' for g in d["gallery"])
+    faq = "".join(f'''      <div class="faq-item reveal"><button class="faq-q">{q}<span class="ic">+</span></button>
+        <div class="faq-a"><p>{a}</p></div></div>\n''' for q,a in d["faq"])
+    related = ""
+    for rs in d["related"]:
+        r = S[rs]
+        related += f'''      <a class="svc-card reveal" href="{rs}.html"><img src="../img/{r["hero"]}.jpg" alt="{r["label"]}">
+        <div class="svc-body"><h3>{r["eyebrow"]}</h3><p>Learn more about our {r["label"].lower()} work.</p><span class="more">View service &rarr;</span></div></a>\n'''
+    plain = d["label"].replace("&amp;","and")
+    return f'''{head(plain+" in Pretoria | PNND Kitchens",
+                     plain+" by PNND Kitchens — owner-led carpentry in Arcadia, Pretoria. Designed, built and installed by hand. Free consultation. Call 081 796 6895.",
+                     d["hero"])}
 
 {TOPBAR}
 
@@ -344,16 +371,16 @@ def page(slug, d):
 <span id="top"></span>
 
 <!-- HERO -->
-<header class="hero hero--sm">
+<header class="hero hero--service">
   <div class="hero-bg"><img src="../img/{d["hero"]}.jpg" alt="{plain} by PNND Kitchens in Pretoria"></div>
   <div class="container">
     <div class="hero-copy reveal">
-      <div class="breadcrumb"><a href="../index.html">home</a><span>/</span><a href="../index.html#services">services</a><span>/</span>{d["eyebrow"]}</div>
-      <span class="eyebrow">{d["eyebrow"]}</span>
+      <div class="breadcrumb"><a href="../index.html">home</a><span>/</span><a href="all-services.html">services</a><span>/</span>{d["eyebrow"]}</div>
+      <span class="eyebrow">{d["tagline"]}</span>
       <h1>{d["head"]}</h1>
-      <p class="hero-sub">Owner-led, made-to-measure and installed by our own team across Pretoria &amp; Gauteng.</p>
+      <p class="hero-sub">{d["intro"]}</p>
       <div class="hero-cta">
-        <a class="btn btn-light" href="#cta-form">Book a Free Consultation</a>
+        <a class="btn btn-light" href="#cta-form">Get My Free Quote →</a>
         <a class="btn btn-light" href="tel:+27817966895" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">Call 081 796 6895</a>
       </div>
     </div>
@@ -361,68 +388,110 @@ def page(slug, d):
 </header>
 
 <!-- OVERVIEW -->
-<section class="section">
-  <div class="container" style="max-width:900px">
-    <span class="eyebrow reveal">overview</span>
-    <h2 class="reveal" style="margin-bottom:20px">{d["head"]}</h2>
-{lede}  </div>
-  <div class="container">
-    <div class="info-grid">
-{info}    </div>
-  </div>
+<section class="section bg-grid">
+  <div class="container" style="max-width:980px">
+{overview}  </div>
 </section>
 
-<!-- WHAT'S INCLUDED -->
+<!-- WHY + WHAT'S INCLUDED -->
 <section class="section bg-alt">
-  <div class="container">
-    <div class="section-head center"><span class="eyebrow reveal">what's included</span><h2 class="reveal">every project, covered end to end</h2></div>
-    <ul class="values included reveal" style="max-width:820px;margin:0 auto">
-{included}    </ul>
-  </div>
-</section>
-
-<!-- WHY -->
-<section class="section">
-  <div class="container">
-    <div class="section-head center"><span class="eyebrow reveal">why pnnd</span><h2 class="reveal">why homeowners choose us</h2></div>
-    <div class="steps" style="grid-template-columns:repeat(3,1fr)">
-{why}    </div>
+  <div class="container svc-split">
+    <div>
+      <span class="eyebrow reveal">why pnnd</span>
+      <h2 class="reveal" style="margin-bottom:24px">Why PNND For {d["label"]}</h2>
+      <ul class="why-list">
+{why}      </ul>
+    </div>
+    <div>
+      <span class="eyebrow reveal">scope of work</span>
+      <h2 class="reveal" style="margin-bottom:24px">What's Included</h2>
+      <div class="inc-grid">
+{inc}      </div>
+    </div>
   </div>
 </section>
 
 <!-- PROCESS -->
-<section class="section bg-alt" id="process">
+<section class="section" id="process">
   <div class="container">
-    <div class="section-head center"><span class="eyebrow reveal">how it works</span><h2 class="reveal">four steps, no surprises</h2></div>
+    <div class="section-head center"><span class="eyebrow reveal">how it works</span><h2 class="reveal">Four Steps, No Surprises</h2></div>
     <div class="steps">
 {process()}    </div>
   </div>
 </section>
 
 <!-- GALLERY -->
-<section class="section">
+<section class="section bg-alt">
   <div class="container">
-    <div class="section-head center"><span class="eyebrow reveal">our work</span><h2 class="reveal">recent {d["eyebrow"]} projects</h2></div>
+    <div class="section-head center"><span class="eyebrow reveal">our work</span><h2 class="reveal">Recent {d["label"]} Projects</h2></div>
     <div class="gallery3 reveal">
 {gallery}    </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="section bg-alt">
+<section class="section">
   <div class="container">
-    <div class="section-head center"><span class="eyebrow reveal">questions</span><h2 class="reveal">common questions</h2></div>
+    <div class="section-head center"><span class="eyebrow reveal">questions</span><h2 class="reveal">Common Questions</h2></div>
     <div class="faq">
 {faq}    </div>
   </div>
 </section>
 
 <!-- YOU MAY ALSO NEED -->
-<section class="section">
+<section class="section bg-alt">
   <div class="container">
-    <div class="section-head center"><span class="eyebrow reveal">you may also need</span><h2 class="reveal">explore our other services</h2></div>
+    <div class="section-head center"><span class="eyebrow reveal">you may also need</span><h2 class="reveal">Explore Our Other Services</h2></div>
     <div class="related">
 {related}    </div>
+  </div>
+</section>
+
+{cta_form()}
+
+{FOOTER}
+
+{MOBILE}
+
+<script src="../js/main.js"></script>
+</body>
+</html>
+'''
+
+def all_services():
+    cards = ""
+    for slug,label in NAV:
+        d = S[slug]
+        cards += f'''      <a class="svc-card reveal" href="{slug}.html"><img src="../img/{d["hero"]}.jpg" alt="{label}">
+        <div class="svc-body"><h3>{d["eyebrow"]}</h3><p>{d["tagline"]}</p><span class="more">View service &rarr;</span></div></a>\n'''
+    return f'''{head("All Services | PNND Kitchens","All services from PNND Kitchens — kitchen remodelling, cabinets, closets, custom carpentry, repairs and decks in Pretoria. Free consultation. Call 081 796 6895.","p01")}
+
+{TOPBAR}
+
+{nav(None)}
+<span id="top"></span>
+
+<header class="hero hero--service">
+  <div class="hero-bg"><img src="../img/p01.jpg" alt="PNND Kitchens services in Pretoria"></div>
+  <div class="container">
+    <div class="hero-copy reveal">
+      <div class="breadcrumb"><a href="../index.html">home</a><span>/</span>services</div>
+      <span class="eyebrow">kitchen remodelling &amp; bespoke carpentry</span>
+      <h1>Our Services</h1>
+      <p class="hero-sub">Everything we design, build, install and repair — one accountable Arcadia workshop. Pick a service to see exactly what's involved.</p>
+      <div class="hero-cta">
+        <a class="btn btn-light" href="#cta-form">Get My Free Quote →</a>
+        <a class="btn btn-light" href="tel:+27817966895" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.5)">Call 081 796 6895</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head center"><span class="eyebrow reveal">what we do</span><h2 class="reveal">One Workshop, Every Detail</h2></div>
+    <div class="services-grid">
+{cards}    </div>
   </div>
 </section>
 
@@ -440,4 +509,6 @@ def page(slug, d):
 for slug, d in S.items():
     open(os.path.join(OUT, slug + ".html"), "w", encoding="utf-8").write(page(slug, d))
     print("wrote services/%s.html" % slug)
-print("done:", len(S), "service pages")
+open(os.path.join(OUT, "all-services.html"), "w", encoding="utf-8").write(all_services())
+print("wrote services/all-services.html")
+print("done:", len(S)+1, "pages")
