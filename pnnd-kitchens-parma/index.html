@@ -8,7 +8,7 @@
 <link rel="icon" type="image/svg+xml" href="img/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="preload" as="image" href="img/p01.jpg">
 <script>document.documentElement.className+=' js';</script>
@@ -74,31 +74,44 @@
 <span id="top"></span>
 
 <!-- ============================== 1 · HERO =============================== -->
-<header class="hero" id="hero">
+<header class="hero hero--home" id="hero">
   <div class="hero-bg"><img src="img/p01.jpg" alt="Minimalist remodelled kitchen by PNND Kitchens in Pretoria"></div>
   <div class="container">
     <div class="hero-copy reveal">
       <span class="eyebrow">Pretoria's owner-led kitchen &amp; carpentry studio</span>
-      <h1>kitchen remodelling &amp; <b>bespoke carpentry</b> in pretoria</h1>
-      <p class="hero-sub">we answer the phone, measure your space ourselves, and hand-build every joint. designed, built, installed and repaired by one accountable workshop in arcadia.</p>
-      <ul class="hero-points">
-        <li>free in-home consultation</li>
-        <li>made-to-measure, by hand</li>
-        <li>build · install · repair</li>
+      <h1>Pretoria's Kitchen Remodelling &amp; Carpentry Specialists</h1>
+      <p class="hero-sub">We answer the phone, measure your space, and explain every line.</p>
+
+      <!-- Google + Facebook review badges -->
+      <div class="hero-reviews">
+        <div class="rev-badge">
+          <svg class="rb-logo" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/><path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.166-4.087 5.574l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/></svg>
+          <div class="rb-meta"><div class="rb-top"><span class="rb-score">5.0</span><span class="rb-stars">★★★★★</span></div><div class="rb-label">Google Reviews</div></div>
+        </div>
+        <div class="rev-badge">
+          <svg class="rb-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+          <div class="rb-meta"><div class="rb-top"><span class="rb-score">5.0</span><span class="rb-stars">★★★★★</span></div><div class="rb-label">Facebook Reviews</div></div>
+        </div>
+      </div>
+
+      <ul class="hero-checks">
+        <li><span class="ck">✓</span> Local Pretoria Crews. Never Outsourced.</li>
+        <li><span class="ck">✓</span> Free In-Home Design Consultation</li>
+        <li><span class="ck">✓</span> Build &middot; Install &middot; Repair, One Team</li>
       </ul>
     </div>
 
     <!-- HERO LEAD FORM -->
-    <div class="lead-card reveal">
-      <h3>get my free quote</h3>
-      <div class="lc-sub">Tell us about your project — we reply the same week.</div>
+    <div class="lead-card lead-card--dark reveal">
+      <h3>We Call You Back In 5 Minutes!</h3>
+      <div class="lc-sub">We will never send you unsolicited spam. No obligation. No pressure.</div>
       <form class="lead-form" novalidate>
         <div class="form-grid">
           <input class="field" type="text" name="name" placeholder="Your Name" required>
           <input class="field" type="tel" name="phone" placeholder="Phone Number" required>
           <input class="field full" type="email" name="email" placeholder="Email Address" required>
           <select class="field full" name="service" required>
-            <option value="" selected disabled>Which service do you need?</option>
+            <option value="" selected disabled>How Can We Help?</option>
             <option>Kitchen Remodelling</option>
             <option>Cabinet Construction &amp; Installation</option>
             <option>Cabinet Repair</option>
@@ -110,7 +123,7 @@
           <input class="field full" type="text" name="address" placeholder="Property Address">
           <input class="field full" type="text" name="message" placeholder="Brief message (optional)">
         </div>
-        <button class="btn btn-block" type="submit" style="margin-top:14px">Book My Free Consultation</button>
+        <button class="btn btn-block" type="submit" style="margin-top:14px">Get My Free Quote →</button>
         <p class="disclaimer">No obligation. No pressure. We will never send you unsolicited messages.</p>
         <div class="form-success">Thank you — your request has been received. We'll be in touch shortly.</div>
       </form>

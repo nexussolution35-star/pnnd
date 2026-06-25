@@ -96,6 +96,34 @@ p{margin:0 0 1rem}
 .hero-points li{font-size:.85rem; color:#efeee9; letter-spacing:.02em}
 .hero-points li::before{content:"—"; color:var(--gold-2); margin-right:9px}
 
+/* hero — Cloud Nine layout treatment (homepage) ---------------------------- */
+.hero--home h1{font-family:'Oswald',var(--font); text-transform:uppercase; font-weight:700;
+  font-size:clamp(2.6rem,5.3vw,4.7rem); line-height:1.02; letter-spacing:.5px}
+.hero--home .hero-sub{font-size:1.16rem; margin-top:16px}
+.hero-reviews{display:flex; flex-wrap:wrap; gap:14px; margin-top:28px}
+.rev-badge{display:flex; align-items:center; gap:12px; background:rgba(255,255,255,.97);
+  padding:11px 18px; border-radius:7px; box-shadow:0 10px 26px rgba(0,0,0,.28)}
+.rev-badge .rb-logo{width:30px; height:30px; flex:none}
+.rev-badge .rb-top{display:flex; align-items:center; gap:7px; line-height:1}
+.rev-badge .rb-score{font-weight:700; color:#1a1a1a; font-size:1.02rem}
+.rev-badge .rb-stars{color:#f5b400; font-size:.82rem; letter-spacing:1px}
+.rev-badge .rb-label{font-size:.76rem; color:#5c5c5c; margin-top:3px}
+.hero-checks{list-style:none; padding:0; margin:28px 0 0; display:grid; gap:11px}
+.hero-checks li{display:flex; align-items:center; gap:12px; color:#f1f0ea; font-size:.98rem; font-weight:400}
+.hero-checks li .ck{width:22px; height:22px; flex:none; border:1px solid var(--gold-2); color:var(--gold-2);
+  display:grid; place-items:center; border-radius:3px; font-size:.66rem}
+
+/* dark hero form card ------------------------------------------------------ */
+.lead-card--dark{background:rgba(18,18,18,.84); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.12); color:#fff}
+.lead-card--dark h3{color:#fff; font-family:'Oswald',var(--font); text-transform:uppercase; font-weight:700; font-size:1.7rem; letter-spacing:.4px}
+.lead-card--dark .lc-sub{color:#bdbbb4}
+.lead-card--dark .field{background:rgba(255,255,255,.07); border-color:rgba(255,255,255,.16); color:#fff}
+.lead-card--dark .field::placeholder{color:#9c998f}
+.lead-card--dark select.field{background-image:linear-gradient(45deg,transparent 50%,var(--gold-2) 50%),linear-gradient(135deg,var(--gold-2) 50%,transparent 50%)}
+.lead-card--dark select.field option{color:#111}
+.lead-card--dark .field:focus{border-color:var(--gold); background:rgba(255,255,255,.12)}
+.lead-card--dark .disclaimer{color:#8c8980}
+
 /* lead form card ----------------------------------------------------------- */
 .lead-card{background:#fff; box-shadow:var(--shadow-img); padding:36px}
 .lead-card h3{font-size:1.5rem; font-weight:500; margin-bottom:4px}
