@@ -9,3 +9,10 @@ mcgeerkitchens-static-clone.zip
 # Python cache
 __pycache__/
 *.pyc
+
+# Deploy working artifacts (not part of the clone)
+_deploy/
+_cred*.txt
+_token.txt
+_domain.txt
+*_log.txt
